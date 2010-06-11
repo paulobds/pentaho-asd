@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
+  <info organisation="${ivy.artifact.group}" module="${ivy.artifact.id}" revision="${project.revision}" />
+
+  <configurations>
+    <conf name="default" />
+    <conf name="test" visibility="private" />
+    <conf name="codegen" visibility="private" />
+    <conf name="codegen-linux" extends="codegen" visibility="private" />
+    <conf name="codegen-win" extends="codegen" visibility="private" />
+    <conf name="codegen-mac" extends="codegen" visibility="private" />
+    <conf name="runtime" visibility="private" />
+  </configurations>
+
+  <publications>
+    <artifact name="${ivy.artifact.id}" type="jar" conf="default" />
+  </publications>
+
+  <dependencies defaultconf="default->default">
+    <dependency org="pentaho" name="pentaho-bi-platform-api" rev="${dependency.bi-platform.revision}" changing="true" transitive="false" />
+    <dependency org="pentaho" name="pentaho-bi-platform-plugin-services" rev="${dependency.bi-platform.revision}" changing="true" transitive="true" />
+    <dependency org="pentaho" name="pentaho-actionsequence-dom" rev="${dependency.pentaho-actionsequence-dom.revision}" changing="true" />
+    <dependency org="pentaho" name="pentaho-actionsequence-model" rev="${dependency.pentaho-actionsequence-model.revision}" changing="true" />
+    <!--  external dependencies -->
+    <dependency org="commons-logging" name="commons-logging" rev="1.1" transitive="false" />
+    <dependency org="commons-logging" name="commons-logging-api" rev="1.1" transitive="false" />
+    <dependency org="dom4j" name="dom4j" rev="1.6.1" transitive="false" />
+    <dependency org="com.google.code.gwt-dnd" name="gwt-dnd" rev="2.5.6"/>
+    <dependency org="com.google.gwt" name="gwt-user" rev="2.0.3"/>
+    <dependency org="com.google.gwt" name="gwt-servlet" rev="2.0.3"/>
+    
+    <!--  codegen dependencies -->
+    <dependency org="com.google.gwt" name="gwt-dev" rev="2.0.3" conf="codegen->default"/>
+    <dependency org="vaadin" name="gwt-graphics" rev="0.9.6" conf="codegen->default"/>
+    <dependency org="vaadin" name="gwt-graphics" rev="0.9.6"/>
+
+    <!--  test dependencies -->
+<!--    <dependency org="junit"              name="junit"              rev="4.4" conf="test->default"/>-->
+<!--    <dependency org="pentaho" name="pentaho-bi-platform-test-foundation" rev="${dependency.bi-platform.revision}" changing="true" conf="test->default" transitive="true" />-->
+<!--    <dependency org="pentaho" name="pentaho-bi-platform-plugin-services" rev="${dependency.bi-platform.revision}" changing="true" conf="test->default" transitive="true" />-->
+    
+    
+
+    
+
+  </dependencies>
+</ivy-module>
