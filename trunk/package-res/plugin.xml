@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <!--
+    This plugin specification file illustrates various extension points a plugin can extend, by providing: 1. An Echo
+    web service 2. Content type registration of, and related content generation for, a new "xecho" solution file type 3.
+    Am Echo BI Component (POJO style) A plugin file could contain just one of these sections and be complete. For
+    purposes of illustration only, we are showing all in a single plugin, how you might configure each type of
+    extension. In other words, your plugin may only need to provide a Web Service, in which case you would only need the
+    xml in section 1. Conversely, your plugin may only need to specify a new content type and content generator, so your
+    plugin.xml would only need to contain the stuff in section 2, etc.
+  -->
+
+<plugin
+  title="Action Sequence Editor">
+
+<!--  <menu-items>-->
+<!--    <menu-item-->
+<!--      id="admin"-->
+<!--      anchor="navigate-menu"-->
+<!--      label="Administration"-->
+<!--      command="content/admin/as.html"-->
+<!--      type="MENU_ITEM"-->
+<!--      how="LAST_CHILD" />-->
+<!--  </menu-items>-->
+
+  <content-type
+    type="xaction"
+    mime-type="text/html">
+    <title>MyXAction</title>
+    <description>MyXAction</description>
+    <icon-url>http://www.mariowiki.com/images/thumb/f/f5/Grodus_x.PNG/50px-Grodus_x.PNG</icon-url>
+    <meta-provider>org.pentaho.plugins.as.server.ActionSequenceMetaProvider</meta-provider>
+    <operations>
+      <operation>
+        <id>EDIT</id>
+        <command>content/aseditor/as.html?solution={solution}&amp;path={path}&amp;action={name}&amp;edit=true</command>
+      </operation>
+    </operations>
+  </content-type>
+
+  <static-paths>
+    <static-path
+      url="/aseditor"
+      localFolder="resources" />
+  </static-paths>
+
+  <webservice
+    id="actionSequenceService"
+    type="gwt"
+    class="org.pentaho.plugins.as.server.ActionSequenceServiceImpl" />
+
+</plugin>
