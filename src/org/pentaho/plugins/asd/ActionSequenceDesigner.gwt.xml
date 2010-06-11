@@ -16,5 +16,5 @@
   <inherits name='org.pentaho.actionsequence.ActionSequenceDto' />
 
   <!-- Specify the app entry point class.                         -->
-  <entry-point class='org.pentaho.plugins.as.client.ActionSequenceView'/>
+  <entry-point class='org.pentaho.plugins.asd.client.ActionSequenceView'/>
 </module>
