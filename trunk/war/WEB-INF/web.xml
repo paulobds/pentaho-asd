@@ -7,7 +7,7 @@
 
   <servlet>
     <servlet-name>actionSequenceServlet</servlet-name>
-    <servlet-class>org.pentaho.plugins.as.server.ActionSequenceServiceImpl</servlet-class>
+    <servlet-class>org.pentaho.plugins.asd.server.ActionSequenceServiceImpl</servlet-class>
   </servlet>
   
   <servlet-mapping>
