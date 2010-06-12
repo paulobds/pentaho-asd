@@ -12,7 +12,7 @@
   
   <servlet-mapping>
     <servlet-name>actionSequenceServlet</servlet-name>
-    <url-pattern>/actionSequence/service</url-pattern>
+    <url-pattern>/actionSequenceDesigner/service</url-pattern>
   </servlet-mapping>
 
 </web-app>
